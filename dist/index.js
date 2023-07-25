@@ -54,8 +54,7 @@ const utils_1 = require("./utils");
                 let outputFileName = '';
                 for (const languageTitle in allLanguages) {
                     outputFileName = `${languageTitle.trim().toLowerCase()}${utils_1.default.getFileExtension(filePath)}`;
-                    const unflattenedLanguageObj = unflatten(allLanguages[languageTitle], { object: true });
-                    fs.writeFileSync(utils_1.default.documentSavePath(filePath, outputFileName), JSON.stringify(unflattenedLanguageObj, null, 2), 'utf-8');
+                    fs.writeFileSync(utils_1.default.documentSavePath(filePath, outputFileName), JSON.stringify(allLanguages[languageTitle], null, 2), 'utf-8');
                     utils_1.default.log(chalk.yellow(`Output file name for ${languageTitle} is ${outputFileName}`));
                     utils_1.default.log(chalk.grey(`Location of the created file is`));
                     utils_1.default.log(chalk.magentaBright(`${utils_1.default.documentSavePath(filePath, outputFileName)}\n`));
