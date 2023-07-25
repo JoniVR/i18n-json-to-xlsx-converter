@@ -65,9 +65,7 @@ import utils from './utils';
           for (const languageTitle in allLanguages) {
             outputFileName = `${languageTitle.trim().toLowerCase()}${utils.getFileExtension(filePath)}`;
 
-            const unflattenedLanguageObj = unflatten(allLanguages[languageTitle], { object: true });
-
-            fs.writeFileSync(utils.documentSavePath(filePath, outputFileName), JSON.stringify(unflattenedLanguageObj, null, 2), 'utf-8');
+            fs.writeFileSync(utils.documentSavePath(filePath, outputFileName), JSON.stringify(allLanguages[languageTitle], null, 2), 'utf-8');
 
             utils.log(chalk.yellow(`Output file name for ${languageTitle} is ${outputFileName}`));
             utils.log(chalk.grey(`Location of the created file is`));
